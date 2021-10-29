@@ -3,8 +3,8 @@ class CreatePosts < ActiveRecord::Migration[6.1]
     create_table :posts do |t|
       t.string :title
       t.text :text
-      t.comments_counter :integer
-      t.likes_counter :integer
+      t.integer :comments_counter
+      t.integer :likes_counter
 
       t.timestamps
     end
