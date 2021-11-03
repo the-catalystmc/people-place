@@ -1,0 +1,13 @@
+<div class="user">
+  <a class="user" href="/users/<%= user.id %>">
+    <div class="user">
+    <div class="profile-pic">
+        <%= image_tag('profile-pic.jpg', :size => "100x100") %>
+    </div>
+    <div class="text-holder">
+        <p><%= user.name %></p>
+        <p>Number of Posts: <%= user.posts_counter %></p>
+    </div>
+    </div>
+  </a>
+</div>
