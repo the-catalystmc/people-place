@@ -1,6 +1,8 @@
 <div class="posts-info">
 <%= render 'user_card', user: @user %>
-<%= render 'post_card', post: @post %>
+<% @posts.each do |post| %>
+<%= render 'post_card', post: post %>
+<% end %>
 
 </div>
 
