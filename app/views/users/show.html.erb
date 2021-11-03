@@ -1,1 +1,13 @@
-<h1>Here is a list of posts for a given user<h1>
+<div class="user-posts-cont">
+    <%= render 'user_card', user: @user %>
+    <div class="user-bio">
+        <p>Bio</p>
+        <p><%= @user.bio %></p>
+    </div>
+    <div class="user-posts">
+         <% @posts.each do |post| %>
+    <%= render 'post_card', post: post %>
+  <% end %>
+    </div>
+      <a href="/users/<%= @user.id %>/posts" class="see-all">See all posts</a>
+</div>

@@ -4,7 +4,7 @@
 
 .user {
     display: flex;
-    width: 80%;
+    width: 100%;
 
     .profile-pic{
         border: solid black 2px;
@@ -19,5 +19,27 @@
         width: 100%;
         justify-content: space-around;
         height: 100px;
+    }
+}
+
+.user-bio {
+    border: solid black 2px;
+    margin: 5px 0;
+}
+
+.post {
+    border: solid black 2px;
+    width: 100%;
+    justify-content: space-around;
+    height: auto;
+    padding: 10px 0;
+    margin: 5px 0;
+
+    a {
+        width: 100%;
+    }
+
+    .post-comment {
+        padding-right: 10px;
     }
 }
