@@ -1,2 +1,11 @@
-<h1>Here is a list of available comments on a given post.<h1>
+<div class="post">
+   <p class="post-title"><%= @post.title %> By <%= @user.name %></p>
+      <div class="interact"><span class="post-comment">Comments: <%= @post.comments_counter %></span><span class="post-like">Likes: <%= @post.likes_counter %></span></div>
+   <p class="post-text"><%= @post.text %></p>
+</div>
+<div class="comment-cont">
+   <% @post.recent_comments(100).each do |comment| %>
+   <p><%= comment.text %></p>
+<% end %>
+</div>
 
