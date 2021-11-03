@@ -1,5 +1,7 @@
+<a href="/users/<%= @user.id %>/posts/<%= post.id %>">
 <div class="post">
    <p class="post-title"><%= post.title %></p>
    <p class="post-text"><%= post.text %></p>
    <div class="interact"><span class="post-comment">Comments: <%= post.comments_counter %></span><span class="post-like">Likes: <%= post.likes_counter %></span></div>
 </div>
+</a>
