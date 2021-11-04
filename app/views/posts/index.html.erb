@@ -1,5 +1,6 @@
 <div class="posts-info">
 <%= render 'user_card', user: @user %>
+    <button> <%= link_to 'Add Post', new_post_path %></button>
 <% @posts.each do |post| %>
 <%= render 'post_card', post: post %>
 <% end %>

@@ -4,6 +4,7 @@
         <p>Bio</p>
         <p><%= @user.bio %></p>
     </div>
+    <button> <%= link_to 'Add Post', new_post_path %></button>
     <div class="user-posts">
          <% @posts.each do |post| %>
     <%= render 'post_card', post: post %>
