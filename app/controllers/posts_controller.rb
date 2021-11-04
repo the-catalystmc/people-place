@@ -12,6 +12,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    @user = User.find(params[:id])
     @current_user = current_user
     @post = Post.new
     respond_to do |format|
