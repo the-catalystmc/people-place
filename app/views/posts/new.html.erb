@@ -1,0 +1,21 @@
+<h1>New Post</h1>
+<%= form_with model: @post, url: new_post_path, method: :post, local: true, scope: :post do |f| %>
+  <div>
+  <%= f.label :post_title %>
+
+  <%= f.text_field :title,
+  size: "50x100",
+placeholder: "Write your title here..."
+  %>
+</div>
+
+<div>
+  <%= f.label :post %>
+
+  <%= f.text_field :text,
+size: "100x100",
+placeholder: "Write your post here..."
+  %>
+</div>
+<%= f.submit "Create Post" %>
+<% end %>
