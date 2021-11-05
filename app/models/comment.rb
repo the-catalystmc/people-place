@@ -2,7 +2,7 @@ class Comment < ApplicationRecord
   belongs_to :author, class_name: 'User'
   belongs_to :post
 
-  validates :text, presence: { message: 'Text field cannot be empty.' }
+  validates :text, presence: { message: ' field cannot be empty.' }
 
   def update_post_comments
     counter = post.comments.count('id')
