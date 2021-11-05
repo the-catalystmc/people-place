@@ -1,9 +1,6 @@
-<%= form_with model: comment, url: new_comment_path, method: :comment, local: true, scope: :comment do |f| %>
-  <div>
-  <%= f.label :title %>
-
+<%= form_with model: comment, url: new_comment_path,  method: :comment, local: true, scope: :comment do |f| %>
 <div>
-  <%= f.label :Text %>
+  <%= f.label :text %>
 
   <%= f.text_area :text,
 size: "50x12",

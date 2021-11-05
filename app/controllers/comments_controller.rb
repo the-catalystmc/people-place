@@ -17,14 +17,7 @@ class CommentsController < ApplicationController
     @comment.author = @user
     @comment.post = @post
     @comment.save
-    # respond_to block
-    respond_to do |format|
-      format.html do
-      end
-    end
-    # if question saves
     if @comment.save
-      flash[:success] = 'comment saved successfully'
       redirect_to post_comments_url
     else
       flash.now[:error] = 'Error: comment could not be saved'
