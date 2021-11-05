@@ -4,7 +4,7 @@ RSpec.describe 'Users', type: :request do
   describe 'GET /index' do
     before { get '/users' }
     it 'If the response body includes correct placeholder text.' do
-      expect(response.body).to include('Here is a list of available users on People\'s Place.')
+      expect(response.body).to include('Number of Posts:')
     end
     it 'If a correct template was rendered.' do
       expect(response).to render_template('index')
@@ -17,7 +17,7 @@ RSpec.describe 'Users', type: :request do
   describe 'GET /index/id' do
     before { get '/users/1' }
     it 'If the response body includes correct placeholder text.' do
-      expect(response.body).to include('Here is a list of posts for a given user')
+      expect(response.body).to include('Bio')
     end
     it 'If a correct template was rendered.' do
       expect(response).to render_template('show')
