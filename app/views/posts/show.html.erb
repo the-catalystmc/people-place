@@ -4,6 +4,7 @@
    <p class="post-text"><%= @post.text %></p>
 </div>
     <button> <%= link_to 'Add Comment', new_comment_path %></button>
+     <%= button_to 'Like', user_create_post_like_url, method: :create %>
 <div class="comment-cont">
    <% @post.recent_comments(100).each do |comment| %>
    <p><%= comment.text %></p>
