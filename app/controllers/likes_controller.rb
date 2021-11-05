@@ -7,11 +7,6 @@ class LikesController < ApplicationController
     @like.author_id = current_user.id
     @like.post_id = @post.id
     @like.save
-    if @like.save
-      redirect_to post_comments_url
-    else
-      flash.now[:error] = 'To-do item update failed'
-    end
     redirect_to post_comments_url
   end
 
