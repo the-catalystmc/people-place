@@ -4,9 +4,9 @@ RSpec.describe User, type: :model do
   before :each do
     @user = User.new(name: 'Tom Rodrick',
                      photo: 'link',
-                     bio: "I am just goin to overdo the title for emphasis.\s
+                     bio: 'I am just goin to overdo the title for emphasis.\s
                      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\s
-                     sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss!",
+                     sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss!',
                      posts_counter: 0)
     @user.save
   end

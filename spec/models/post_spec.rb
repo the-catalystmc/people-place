@@ -4,7 +4,7 @@ RSpec.describe Post, type: :model do
   before :each do
     @user = User.create(name: 'Tom Rodrick',
                         photo: 'link',
-                        bio: "I am a footballer",
+                        bio: 'I am a footballer',
                         posts_counter: 0)
     @post = Post.new(title: 'Post 1', text: 'Text', author_id: @user.id, comments_counter: 0, likes_counter: 0)
     @post.save
