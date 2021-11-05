@@ -1,0 +1,11 @@
+<%= form_with model: comment, url: new_comment_path,  method: :comment, local: true, scope: :comment do |f| %>
+<div>
+  <%= f.label :text %>
+
+  <%= f.text_area :text,
+size: "50x12",
+placeholder: "Write your post here..."
+  %>
+</div>
+<%= f.submit "Submit" %>
+<% end %>

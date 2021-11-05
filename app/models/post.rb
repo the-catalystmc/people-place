@@ -15,4 +15,12 @@ class Post < ApplicationRecord
   def five_recent_comments
     recent_comments(5)
   end
+
+  def comments_counter
+    comments.count
+  end
+
+  def likes_counter
+    likes.count
+  end
 end
