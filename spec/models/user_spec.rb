@@ -9,6 +9,18 @@ RSpec.describe User, type: :model do
                      sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss!',
                      posts_counter: 0)
     @user.save
+    @post = Post.new(title: 'Post 1', text: 'This is a post', author_id: 1)
+    @post.save
+  end
+
+  it 'should be equal to zero if there are no recent posts' do
+    recent = @user.recent_posts
+    expect(recent.length).to eq(0)
+  end
+
+  it 'should be equal to zero if there are no three recent posts' do
+    recent = @user.three_recent_posts
+    expect(recent.length).to eq(0)
   end
 
   it 'name should be present' do
