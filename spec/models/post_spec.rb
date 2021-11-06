@@ -45,4 +45,14 @@ RSpec.describe Post, type: :model do
     @post.likes_counter = -1
     expect(@post).to_not be_valid
   end
+
+  it 'should be equal to zero if there are no recent comments' do
+    recent = @post.recent_comments(10)
+    expect(recent.length).to eq(0)
+  end
+
+  it 'should be equal to zero if there are no five recent posts' do
+    recent = @post.five_recent_comments
+    expect(recent.length).to eq(0)
+  end
 end
