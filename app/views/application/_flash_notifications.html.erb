@@ -1,0 +1,9 @@
+<div class="center">
+  <div>
+    <% flash.each do |type, msg| %>
+      <% if type == 'notice' %>
+          <%= msg %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

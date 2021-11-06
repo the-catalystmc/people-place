@@ -18,6 +18,7 @@ class CommentsController < ApplicationController
     @comment.post = @post
     @comment.save
     if @comment.save
+      flash[:notice] = 'comment saved successfully'
       redirect_to post_comments_url
     else
       flash.now[:error] = 'Error: comment could not be saved'
