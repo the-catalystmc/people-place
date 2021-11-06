@@ -1,5 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before :each do
+    @comment = Comment.create(text: 'I am a footballer')
+    @comment.save
+  end
+
+  it 'text should be present' do
+    @comment.text = nil
+    expect(@comment).to_not be_valid
+  end
 end

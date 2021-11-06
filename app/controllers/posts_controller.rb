@@ -25,7 +25,7 @@ class PostsController < ApplicationController
     # new object from params
     @post = @user.posts.create(params.require(:post).permit(:title, :text))
     if @post.save
-      flash[:success] = 'Post saved successfully'
+      flash[:notice] = 'Post saved successfully'
       redirect_to user_post_url
     else
       flash.now[:error] = 'Error: Post could not be saved'

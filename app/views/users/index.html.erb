@@ -1,5 +1,5 @@
 <div class="users-container">
-  <% @users.each do |user| %>
+  <% @users.includes(:posts).each do |user| %>
     <%= render 'user_card', user: user %>
   <% end %>
 </div>
