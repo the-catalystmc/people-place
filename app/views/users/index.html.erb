@@ -1,4 +1,5 @@
 <div class="users-container">
+   <button> <%= link_to 'Add Post', '/users/sign_up' %></button>
   <% @users.includes(:posts).each do |user| %>
     <%= render 'user_card', user: user %>
   <% end %>
