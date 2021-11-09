@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
   def index
-    if user_signed_in?
-      @user = current_user
-    end
+    @user = current_user if user_signed_in?
     @users = User.all
   end
 
