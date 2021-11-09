@@ -6,6 +6,7 @@ Logged in as <%= @user.name %>
 <% end %>
 <% if !@user %>
    <button> <%= link_to 'Sign Up', '/users/sign_up' %></button>
+      <button> <%= link_to 'Login', '/users/sign_in' %></button>
 <% end %>
   <% @users.includes(:posts).each do |user| %>
     <%= render 'user_card', user: user %>
