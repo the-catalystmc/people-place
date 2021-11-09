@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   post '/users/:id/posts/new', to: 'posts#create' # create
   post '/users/:id/posts/:post_id/comments/new', to: 'comments#create' # create
   post "/users/:id/posts/:post_id/like", to: "likes#like", as: "user_create_post_like"
+  delete "/users/:id/posts/:post_id", to: "posts#destroy", as: "destroy_post"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

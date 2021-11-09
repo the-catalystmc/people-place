@@ -40,4 +40,17 @@ class PostsController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def destroy
+    @user = current_user
+    @post = @user.posts.find(params[:post_id])
+    @delete_post = @user.posts.destroy(@post.id)
+    if @post.destroy
+      flash[:notice] = 'Post deleted successfully'
+      redirect_to user_post_url
+    else
+      flash.now[:error] = 'Error: Post could not be deleted'
+      render :new, locals: { post: @post }
+    end
+  end
 end
