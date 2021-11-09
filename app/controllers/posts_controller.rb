@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  # load_and_authorize_resource
+
   def index
     @user = User.find(params[:id])
     @posts = @user.recent_posts
@@ -7,6 +9,7 @@ class PostsController < ApplicationController
 
   def show
     @current_user = current_user
+    @user = current_user
     @user = User.find(params[:id])
     @post = @user.posts.find(params[:post_id])
   end
