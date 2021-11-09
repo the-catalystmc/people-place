@@ -1,5 +1,12 @@
 <div class="users-container">
-   <button> <%= link_to 'Login User', '/users/sign_up' %></button>
+<% if @user %>
+Logged in as <%= @user.name %>
+      <button> <%= link_to 'Logout', '/users/sign_out', method: :delete %></button>
+
+<% end %>
+<% if !@user %>
+   <button> <%= link_to 'Sign Up', '/users/sign_up' %></button>
+<% end %>
   <% @users.includes(:posts).each do |user| %>
     <%= render 'user_card', user: user %>
   <% end %>
