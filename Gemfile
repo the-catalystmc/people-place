@@ -30,6 +30,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'rails-controller-testing'
 
+gem 'cancancan'
+
 gem 'devise'
 
 group :development, :test do

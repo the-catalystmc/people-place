@@ -25,4 +25,18 @@ class CommentsController < ApplicationController
       render :new, locals: { comment: @comment }
     end
   end
+
+  def destroy
+    @user = User.find(params[:id])
+    @post = @user.posts.find(params[:post_id])
+    @comment = @post.comments.find(params[:comment_id])
+    @comment.destroy
+    if @comment.destroy
+      flash[:notice] = 'Comment deleted successfully'
+      redirect_to user_post_url
+    else
+      flash.now[:error] = 'Error: Comment could not be deleted'
+      render :new, locals: { post: @post }
+    end
+  end
 end

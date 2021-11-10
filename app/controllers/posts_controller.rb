@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  # load_and_authorize_resource
+
   def index
     @user = User.find(params[:id])
     @posts = @user.recent_posts
@@ -7,6 +9,7 @@ class PostsController < ApplicationController
 
   def show
     @current_user = current_user
+    @user = current_user
     @user = User.find(params[:id])
     @post = @user.posts.find(params[:post_id])
   end
@@ -35,6 +38,19 @@ class PostsController < ApplicationController
     else
       flash.now[:error] = 'Error: Please sign up to make a posts.'
       redirect_to root_path
+    end
+  end
+
+  def destroy
+    @user = current_user
+    @post = @user.posts.find(params[:post_id])
+    @delete_post = @user.posts.destroy(@post.id)
+    if @post.destroy
+      flash[:notice] = 'Post deleted successfully'
+      redirect_to user_post_url
+    else
+      flash.now[:error] = 'Error: Post could not be deleted'
+      render :new, locals: { post: @post }
     end
   end
 end
