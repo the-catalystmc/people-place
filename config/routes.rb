@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   namespace :api do
+    resources :allposts
     resources :users do
       resources :posts do
         resources :comments
