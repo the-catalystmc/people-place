@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   # load_and_authorize_resource
 
   def index
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     @posts = @user.recent_posts
     @limit = params[:limit] unless params[:limit].nil?
   end
@@ -10,12 +10,12 @@ class PostsController < ApplicationController
   def show
     @current_user = current_user
     @user = current_user
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     @post = @user.posts.find(params[:post_id])
   end
 
   def new
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     @current_user = current_user
     @post = Post.new
     respond_to do |format|
