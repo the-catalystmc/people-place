@@ -6,7 +6,7 @@ RSpec.describe 'Login Page', type: :system do
                          bio: 'I am a software developer.',
                          posts_counter: 0, email: 'admin@admin.com', password: '123456', confirmed_at: Time.now)
     @post = Post.create(title: 'Post 1', text: 'Hey I am a post.',
-                              author_id: @admin.id, comments_counter: 0, likes_counter: 0)
+                        author_id: @admin.id, comments_counter: 0, likes_counter: 0)
     Comment.create(text: 'I am a comment', author_id: @admin.id, post_id: @post.id)
   end
   describe 'Contains necessary elements' do
