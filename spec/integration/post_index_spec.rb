@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'User Index Page', type: :system do
+RSpec.describe 'Post Index Page', type: :system do
   before(:all) do
     @admin = User.create(name: 'Admin', photo: 'photo',
                          bio: 'I am a software developer.',
