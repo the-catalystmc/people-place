@@ -1,25 +1,16 @@
 class Api::CommentsController < ApplicationController
   before_action :set_comments
 
-  def show; end
-
-  def new
-    @comment = Comment.new
-  end
-
   def create
-    @comment = Comment.new(comment_params)
-    @comment.author_id = current_user.id
-    @comment.post_id = params[:id]
-    if @comment.save
-      flash[:notice] = 'Comment added'
-      respond_to do |format|
-        format.json { render json: @comment }
-      end
-    else
-      flash[:notice] = 'Comment not added'
-      render :new
-    end
+    user = current_user
+    comment = Comment.new(comment_params)
+    comment.author = user
+    response = if comment.save
+                 { comment: comment }
+               else
+                 { message: "comment didn't save" }
+               end
+    json_response(response)
   end
 
   def index
@@ -39,5 +30,12 @@ class Api::CommentsController < ApplicationController
   def set_comments
     @post = Post.find(params[:post_id])
     @comments = @post.recent_comments(100)
+  end
+
+  def comment_params
+    params.permit(
+      :text,
+      :post_id
+    )
   end
 end
