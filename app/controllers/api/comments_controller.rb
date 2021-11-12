@@ -3,6 +3,25 @@ class Api::CommentsController < ApiController
 
   def show; end
 
+  def new
+    @comment = Comment.new
+  end
+
+  def create
+    @comment = Comment.new(comment_params)
+    @comment.author_id = current_user.id
+    @comment.post_id = params[:id]
+    if @comment.save
+      flash[:notice] = 'Comment added'
+      respond_to do |format|
+        format.json { render json: @comment }
+      end
+    else
+      flash[:notice] = 'Comment not added'
+      render :new
+    end
+  end
+
   def index
     # @comments.each do |comment|
     #   render json: {
