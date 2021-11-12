@@ -33,6 +33,8 @@ gem 'rails-controller-testing'
 gem 'cancancan'
 
 gem 'devise'
+gem 'jwt'
+gem 'simple_command'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -55,7 +57,10 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
