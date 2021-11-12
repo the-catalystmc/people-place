@@ -1,4 +1,4 @@
-class Api::CommentsController < ApiController
+class Api::CommentsController < ApplicationController
   before_action :set_comments
 
   def show; end

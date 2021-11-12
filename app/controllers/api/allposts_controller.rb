@@ -1,4 +1,4 @@
-class Api::AllpostsController < ApiController
+class Api::AllpostsController < ApplicationController
   before_action :set_posts
 
   def show; end
