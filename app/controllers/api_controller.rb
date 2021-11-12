@@ -1,9 +1,13 @@
 class ApiController < ApplicationController
-    before_action :set_default_format
+  protect_from_forgery if: :json_request # return null session when API call
+  before_action :authenticate_request, if: :json_request
 
-    private
+  attr_reader :current_user
 
-    def set_default_format
-        request.format =:json
-    end
+  private
+
+  def authenticate_request
+    @current_user = AuthorizeApiRequest.call(request.headers).result
+    render json: { error: 'Not Authorized' }, status: 401 unless @current_user
+  end
 end
