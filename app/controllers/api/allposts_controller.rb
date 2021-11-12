@@ -4,16 +4,17 @@ class Api::AllpostsController < ApiController
   def show; end
 
   def index
-    @posts.each do |post|
-      render json: {
-        id: post.id,
-        title: post.title,
-        text: post.text,
-        comments_counter: post.comments_counter,
-        likes_counter: post.likes_counter,
-        author_id: post.author_id
-      }
-    end
+    # @posts.each do |post|
+    #   render json: {
+    #     id: post.id,
+    #     title: post.title,
+    #     text: post.text,
+    #     comments_counter: post.comments_counter,
+    #     likes_counter: post.likes_counter,
+    #     author_id: post.author_id
+    #   }
+    # end
+    render json: @posts
   end
 
   private

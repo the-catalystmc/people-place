@@ -4,14 +4,15 @@ class Api::CommentsController < ApiController
   def show; end
 
   def index
-    @comments.each do |comment|
-      render json: {
-        id: comment.id,
-        text: comment.text,
-        author_id: comment.author_id,
-        post_id: comment.post_id
-      }
-    end
+    # @comments.each do |comment|
+    #   render json: {
+    #     id: comment.id,
+    #     text: comment.text,
+    #     author_id: comment.author_id,
+    #     post_id: comment.post_id
+    #   }
+    # end
+    render json: @comments
   end
 
   private
