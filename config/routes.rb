@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  namespace :api do
+  devise_for :users
+  namespace :api, defaults: { format: :json } do
     post 'login', to: 'authentication#authenticate'
     post 'signup', to: 'users#create' 
     resources :allposts
@@ -9,7 +10,6 @@ Rails.application.routes.draw do
       end
     end
   end
-  devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'}
   root "users#index"
   get "/users/", to: "users#index", as: 'users'
   get "/users/:user_id", to: "users#show"
